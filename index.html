@@ -97,8 +97,8 @@ h3{font:600 clamp(2.7rem,7vw,5rem)/.95 "Cormorant Garamond",serif;margin:0 0 25p
 .time-card p{color:var(--muted);line-height:1.7;margin:0}
 
 .gallery{display:grid;grid-template-columns:1.12fr .88fr;gap:18px;margin-top:35px}
-.photo{border-radius:27px;overflow:hidden;border:1px solid var(--line);background:#121016;min-height:310px}
-.photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .7s}
+.photo{border-radius:27px;overflow:hidden;border:1px solid var(--line);background:#121016;min-height:310px;display:flex;align-items:centre;justify-content:centre;}
+.photo img{width:100%;height:100%;display:block;object-fit:contain;transition:transform .7s}
 .photo:first-child{min-height:610px}
 .photo:hover img{transform:scale(1.035)}
 
