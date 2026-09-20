@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#09070c">
+<title>Happy Birthday Bhaii 🫂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#09070c;--panel:rgba(255,255,255,.065);--line:rgba(255,255,255,.13);
+  --white:#fffafc;--muted:#bdb3bf;--pink:#ff7899;--gold:#ffd9a8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+body.locked{height:100vh;overflow:hidden}
+button{font:inherit}
+
+#gate{
+ position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+ padding:25px;background:#09070c;overflow:hidden;transition:opacity .75s ease,visibility .75s ease;
+}
+#gate.opened{opacity:0;visibility:hidden;pointer-events:none}
+.gate-bg{position:absolute;inset:-5%;background:
+ radial-gradient(circle at 20% 25%,rgba(255,120,153,.18),transparent 28%),
+ radial-gradient(circle at 80% 75%,rgba(255,217,168,.11),transparent 30%);
+ filter:blur(2px)}
+.gate-photo{position:absolute;inset:0;background:linear-gradient(rgba(9,7,12,.76),rgba(9,7,12,.96)),url("assets/photo1.jpg") center/cover;opacity:.3;transform:scale(1.04)}
+.gate-card{
+ position:relative;width:min(650px,100%);padding:clamp(35px,8vw,70px) 25px;text-align:center;
+ border:1px solid rgba(255,255,255,.14);border-radius:32px;background:rgba(13,10,17,.58);
+ backdrop-filter:blur(22px);box-shadow:0 30px 100px rgba(0,0,0,.5)
+}
+.mini{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.gate-card h1{font:400 clamp(4rem,15vw,7rem)/.9 "Great Vibes",cursive;margin:25px 0 18px}
+.gate-card p{color:#d2c8d0;line-height:1.75;margin:0 auto;max-width:470px}
+#openBtn{
+ margin-top:30px;border:0;border-radius:999px;padding:15px 25px;color:white;font-weight:700;
+ cursor:pointer;background:linear-gradient(135deg,#ff7698,#c94f76);
+ box-shadow:0 12px 35px rgba(255,91,128,.28);transition:transform .2s,box-shadow .2s;
+ -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+}
+#openBtn:active{transform:scale(.96)}
+#openBtn:hover{transform:translateY(-2px);box-shadow:0 17px 45px rgba(255,91,128,.4)}
+
+.hero{min-height:100svh;position:relative;display:grid;place-items:center;text-align:center;padding:40px 20px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:
+ linear-gradient(180deg,rgba(8,6,10,.38),rgba(8,6,10,.83) 72%,#09070c 100%),
+ url("assets/photo1.jpg") center/cover;filter:saturate(.75)}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,transparent 0,rgba(9,7,12,.08) 28%,rgba(9,7,12,.68) 90%)}
+.hero-content{position:relative;z-index:1;max-width:900px}
+.eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#ffe0e9;font-weight:700}
+.hero h2{
+  font-family:"DM Sans", sans-serif;
+  font-size:clamp(2.8rem,7vw,5.8rem);
+  font-weight:700;
+  line-height:1.05;
+  letter-spacing:-0.04em;
+  margin:25px auto 20px;
+  max-width:900px;
+  background:linear-gradient(180deg,#ffffff 20%,#ffd9e2 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 8px 30px rgba(0,0,0,.35);
+}
+.hero-sub{font:500 clamp(1rem,3vw,1.25rem)/1.7 "Cormorant Garamond",serif;color:#f0e8ed}
+.date{display:inline-flex;margin-top:25px;padding:9px 16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.07);backdrop-filter:blur(10px);font-size:12px}
+.scroll{position:absolute;bottom:25px;z-index:2;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#bfb5be;animation:bob 2s infinite}
+
+main{max-width:1050px;margin:auto;padding:0 20px}
+section{padding:105px 0}
+.kicker{font-size:10px;letter-spacing:.27em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:15px}
+h3{font:600 clamp(2.7rem,7vw,5rem)/.95 "Cormorant Garamond",serif;margin:0 0 25px}
+.intro{max-width:720px;color:var(--muted);line-height:1.9}
+.letter{
+ padding:clamp(28px,6vw,62px);border-radius:30px;border:1px solid var(--line);
+ background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025));
+ box-shadow:0 25px 80px rgba(0,0,0,.22);position:relative;overflow:hidden
+}
+.letter:before{content:"“";position:absolute;right:30px;top:-35px;font:200 180px Georgia;color:rgba(255,120,153,.08)}
+.letter p{font:500 clamp(1.12rem,3vw,1.4rem)/1.85 "Cormorant Garamond",serif;color:#f5edf0;margin:0}
+.sig{font:400 2rem "Great Vibes",cursive;color:#ffc7d4;margin-top:22px}
+
+.timeline{display:grid;gap:14px;margin-top:35px}
+.time-card{
+ display:grid;grid-template-columns:65px 1fr;gap:18px;padding:24px;border:1px solid var(--line);
+ border-radius:24px;background:var(--panel);backdrop-filter:blur(10px);transition:.25s
+}
+.time-card:hover{transform:translateX(5px);border-color:rgba(255,120,153,.3)}
+.num{color:var(--gold);font-size:11px;letter-spacing:.1em;font-weight:700;padding-top:5px}
+.time-card h4{font:600 2rem/1 "Cormorant Garamond",serif;margin:0 0 9px}
+.time-card p{color:var(--muted);line-height:1.7;margin:0}
+
+.gallery{display:grid;grid-template-columns:1.12fr .88fr;gap:18px;margin-top:35px}
+.photo{border-radius:27px;overflow:hidden;border:1px solid var(--line);background:#121016;min-height:310px}
+.photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .7s}
+.photo:first-child{min-height:610px}
+.photo:hover img{transform:scale(1.035)}
+
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:35px}
+.reason{padding:27px;border-radius:25px;border:1px solid var(--line);background:var(--panel)}
+.reason .emoji{font-size:28px}.reason h4{font:600 1.8rem "Cormorant Garamond",serif;margin:13px 0 8px}.reason p{color:var(--muted);line-height:1.7;margin:0}
+
+.final{min-height:70vh;display:grid;place-items:center;text-align:center}
+.final .heart{font-size:45px;animation:pulse 1.6s infinite}
+.final h3{font-size:clamp(3rem,9vw,6.5rem)}
+.final p{max-width:650px;color:var(--muted);line-height:1.85;margin:0 auto 25px}
+footer{text-align:center;padding:25px 20px 55px;color:#817681;font-size:11px}
+
+.float,.confetti{position:fixed;pointer-events:none;z-index:500}
+.float{bottom:-30px;animation:up linear forwards;color:#ff9eb5}
+.confetti{top:-20px;animation:fall linear forwards}
+@keyframes up{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+@keyframes fall{to{transform:translateY(110vh) rotate(600deg);opacity:0}}
+@keyframes bob{50%{transform:translateY(7px);opacity:.5}}
+@keyframes pulse{50%{transform:scale(1.15)}}
+
+@media(max-width:700px){
+ section{padding:78px 0}.gallery{grid-template-columns:1fr}.photo:first-child{min-height:440px}
+ .photo{min-height:330px}.reasons{grid-template-columns:1fr}
+ .time-card{grid-template-columns:48px 1fr}.time-card h4{font-size:1.7rem}
+ .gate-card{border-radius:26px}
+}
+</style>
+</head>
+
+<body class="locked">
+
+<audio id="birthdaySong" autoplay loop preload="auto">
+  <source src="assets/mera-bhai-tu.mp3" type="audio/mpeg">
+</audio>
+
+<div id="gate">
+  <div class="gate-bg"></div><div class="gate-photo"></div>
+  <div class="gate-card">
+    <div class="mini">21 September · A little surprise</div>
+    <h1>For my brother 🫀🫂</h1>
+    <p>8 years of friendship, memories, bakchodi and brotherhood.<br>This one's for you, Bhaii. ❤️</p>
+    <button type="button" id="openBtn">Open Your Surprise 🫂</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow">8 years · countless memories · one brother</div>
+    <h2>HAPPY BIRTHDAY<br>BHAII 🫂</h2>
+    <div class="hero-sub">From 8th class to today… somehow we went from friends to brothers. ❤️</div>
+    <div class="date">21 September · Your Day 🎂</div>
+  </div>
+  <div class="scroll">scroll slowly ↓</div>
+</header>
+
+<main>
+<section>
+  <div class="kicker">A little something for you</div>
+  <h3>To my favourite brother.</h3>
+  <div class="letter">
+    <p>
+      8th class se lekar aaj tak… 8 years ho gaye bhai. 🫂<br>
+      Coaching se shuru hui dosti, saath mein Free Fire ki bakchodi 🎮,
+      cycle rides 🚲, padhai aur padhai ke endless discussions 📚…
+      aur pata hi nahi chala kab tu dost se bhai ban gaya.
+      Bhai tu hamesha khush raha  or jyada load mat liya kar jo problem he sab thik ho jaegi mil ke sort out kar lenge tu bas khush reh  baki to ese hi hasta muskurata rahe or bohot tarakki kare and bohot safal ho baki tera bhai to he hii har situation me tere sath  
+      <br><br>
+      Dost toh bohot milte hain, par <b>tu sirf dost nahi — mera bhai hai.</b> ❤️
+      <br><br>
+      Bas aise hi saath rehna… aur haan,
+      <b>mera bhai tu meri jaan hai. 🫂❤️</b>
+    </p>
+    <div class="sig">— tere bhai ki taraf se ❤️</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Our story</div><h3>8 years of us.</h3>
+  <p class="intro">Ek simple si dosti jo dheere-dheere ek aisi bonding ban gayi jise “friendship” bolna thoda kam lagta hai.</p>
+  <div class="timeline">
+    <div class="time-card"><div class="num">01</div><div><h4>8th Class 📚</h4><p>Yahin se story start hui. Tab kaha pata tha ki ye banda itne saal tak life mein rahega. 😂</p></div></div>
+    <div class="time-card"><div class="num">02</div><div><h4>Coaching Days 🫂</h4><p>Saath padhna, padhai discuss karna… aur beech-beech mein apni bakchodi. 😭</p></div></div>
+    <div class="time-card"><div class="num">03</div><div><h4>Free Fire Era 🎮</h4><p>Books side mein, game on. “Bhai cover de!” — legendary days. 😂🔥</p></div></div>
+    <div class="time-card"><div class="num">04</div><div><h4>Cycle Rides 🚲</h4><p>Bas cycle uthao aur nikal jao. Random rides, random talks, but always good memories.</p></div></div>
+    <div class="time-card"><div class="num">05</div><div><h4>Today ❤️</h4><p>8 years later, same bhai. Responsibilities badh gayi hain… bakchodi abhi bhi pending hai. 😂</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Two frames, thousands of memories</div><h3>Just us. 📸</h3>
+  <div class="gallery">
+    <div class="photo"><img src="assets/photo1.jpg" alt="Two brothers together"></div>
+    <div class="photo"><img src="assets/photo2.jpg" alt="A memorable day together"></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Why you're my brother</div><h3>Because… it's you. 🫂</h3>
+  <div class="reasons">
+    <div class="reason"><div class="emoji">🎮</div><h4>Partner in crime</h4><p>Free Fire ho ya real life ki bakchodi — partner toh tu hi hai.</p></div>
+    <div class="reason"><div class="emoji">📚</div><h4>Study buddy</h4><p>Padhai bhi saath, discussions bhi saath… aur confusion bhi saath. 😂</p></div>
+    <div class="reason"><div class="emoji">❤️</div><h4>More than a friend</h4><p>8 years later, ek cheez bilkul clear hai — tu mera bhai hai.</p></div>
+  </div>
+</section>
+
+<section class="final">
+  <div>
+    <div class="heart">🫂</div><div class="kicker" style="margin-top:18px">One last thing</div>
+    <h3>Dost toh bohot bane…<br>par bhai sirf tu bana. ❤️</h3>
+    <p>Happy Birthday, Bhaii! 🎂 Here's to many more years of memories, masti, padhai, rides, random talks and endless bakchodi.</p>
+    <div class="heart">❤️</div>
+  </div>
+</section>
+</main>
+
+<footer>Made with too much brotherhood 🫂 · 21 September · Happy Birthday Bhaii ❤️</footer>
+
+<script>
+(function(){
+  const gate = document.getElementById('gate');
+  const btn = document.getElementById('openBtn');
+  const song = document.getElementById('birthdaySong');
+
+  // Keep autoplay attempt, but NEVER let audio failure stop the opening animation.
+  try { song.volume = 0.72; song.play().catch(function(){}); } catch(e){}
+
+  function openSurprise(e){
+    if(e) e.preventDefault();
+    // Start music from the user's gesture where browsers permit it.
+    try { const p = song.play(); if(p) p.catch(function(){}); } catch(err){}
+    gate.classList.add('opened');
+    document.body.classList.remove('locked');
+    spawnConfetti();
+    startHearts();
+    setTimeout(function(){ gate.style.display='none'; }, 800);
+  }
+
+  // Both click and touchend are supported; the guard prevents double triggering.
+  let opened = false;
+  function safeOpen(e){
+    if(opened) return;
+    opened = true;
+    openSurprise(e);
+  }
+  btn.addEventListener('click', safeOpen, {passive:false});
+  btn.addEventListener('touchend', safeOpen, {passive:false});
+
+  function spawnConfetti(){
+    const chars=['✦','✧','♥','◆','•'];
+    for(let i=0;i<55;i++){
+      const x=document.createElement('span');
+      x.className='confetti';
+      x.textContent=chars[Math.floor(Math.random()*chars.length)];
+      x.style.left=(Math.random()*100)+'vw';
+      x.style.fontSize=(8+Math.random()*14)+'px';
+      x.style.animationDuration=(3+Math.random()*4)+'s';
+      x.style.animationDelay=(Math.random()*1.2)+'s';
+      document.body.appendChild(x);
+      setTimeout(()=>x.remove(),8000);
+    }
+  }
+
+  let heartTimer;
+  function startHearts(){
+    if(heartTimer) return;
+    heartTimer=setInterval(function(){
+      const h=document.createElement('span');
+      h.className='float';
+      h.textContent=['♥','♡','✦','🫂'][Math.floor(Math.random()*4)];
+      h.style.left=(Math.random()*100)+'vw';
+      h.style.fontSize=(13+Math.random()*18)+'px';
+      h.style.animationDuration=(6+Math.random()*5)+'s';
+      h.style.opacity=.25+Math.random()*.5;
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),12000);
+    },900);
+  }
+})();
+</script>
+</body>
+</html>
